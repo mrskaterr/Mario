@@ -67,6 +67,7 @@
     <Compile Include="Assets\Script\DestroyCube.cs" />
     <Compile Include="Assets\Script\Drop.cs" />
     <Compile Include="Assets\Script\EnemyMushrom.cs" />
+    <Compile Include="Assets\Script\Flower.cs" />
     <Compile Include="Assets\Script\MoveCam.cs" />
     <Compile Include="Assets\Script\Movement.cs" />
     <Compile Include="Assets\Script\MushromDead.cs" />
