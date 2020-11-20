@@ -1,0 +1,37 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class EnemyMushrom : MonoBehaviour
+{
+    // Start is called before the first frame update
+    public float Distance;
+    public float Speed;
+    float PrivateSpeed=0;
+    Rigidbody2D rb;
+    // Start is called before the first frame update
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (PrivateSpeed == 0 && (gameObject.transform.position.x - GameObject.FindGameObjectWithTag("Player").transform.position.x) <= Distance) PrivateSpeed = Speed; //Aktivation
+        rb.velocity = new Vector3(PrivateSpeed, 0, 0);
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "Player" && collision.gameObject.GetComponent<Rigidbody2D>().velocity.y < 0)//Mushrom DIE
+        {
+            gameObject.SetActive(false);
+        }
+        else if (collision.gameObject.name == "Player") //Player DIE
+        {
+            SceneManager.LoadScene("Mario Lvl1");
+        }
+        PrivateSpeed *= -1;  //Change  
+    }
+}

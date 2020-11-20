@@ -1,0 +1,22 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CoinAnim : MonoBehaviour
+{
+    Rigidbody2D Coin;
+    public float JumpPower;
+    void Start()
+    {
+        Coin = GetComponent<Rigidbody2D>();
+        Coin.velocity = new Vector3(0, JumpPower, 0);
+       // GameObject.FindGameObjectWithTag("Canvas").GetComponent<TimeScore>().AddScore(100);
+       // GameObject.FindGameObjectWithTag("Canvas").GetComponent<TimeScore>().AddCoin();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+       if (Coin.position.y < -5) Coin.gameObject.SetActive(false);
+    }
+}
