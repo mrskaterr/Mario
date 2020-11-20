@@ -24,14 +24,20 @@ public class EnemyMushrom : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("mushrom "+collision.gameObject.name);
         if (collision.gameObject.name == "Player" && collision.gameObject.GetComponent<Rigidbody2D>().velocity.y < 0)//Mushrom DIE
         {
             gameObject.SetActive(false);
         }
-        else if (collision.gameObject.name == "Player") //Player DIE
+        else if (collision.gameObject.name == "Player" && collision.gameObject.transform.localScale.x>1) 
+        {
+            collision.gameObject.GetComponent<Movement>().Jump2();
+            collision.gameObject.transform.localScale= new Vector3(1,1,1);
+        }
+        else if (collision.gameObject.name == "Player")//Player DIE
         {
             SceneManager.LoadScene("Mario Lvl1");
         }
-        PrivateSpeed *= -1;  //Change  
+        else if(rb.velocity.x==0)PrivateSpeed *= -1;  //Change  
     }
 }
