@@ -19,12 +19,11 @@ public class EnemyMushrom : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PrivateSpeed == 0 && (gameObject.transform.position.x - GameObject.FindGameObjectWithTag("Player").transform.position.x) <= Distance) PrivateSpeed = Speed; //Aktivation
+        if (PrivateSpeed == 0 && (gameObject.transform.position.x - GameObject.FindGameObjectWithTag("Player").transform.position.x) <= Distance) PrivateSpeed = Speed; //Run Aktivation
         rb.velocity = new Vector3(PrivateSpeed, 0, 0);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("mushrom "+collision.gameObject.name);
         if (collision.gameObject.name == "Player" && collision.gameObject.GetComponent<Rigidbody2D>().velocity.y < 0)//Mushrom DIE
         {
             gameObject.SetActive(false);
