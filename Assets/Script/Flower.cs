@@ -11,7 +11,7 @@ public class Flower : MonoBehaviour
         if (collision.gameObject.name == "Player")
         {
             gameObject.SetActive(false);
-            collision.gameObject.GetComponent<Movement>().FireBall = true;
+            collision.gameObject.GetComponent<Movement>().FireBallActive = true;
         }
     }
 }

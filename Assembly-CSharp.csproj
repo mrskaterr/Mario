@@ -66,7 +66,9 @@
     <Compile Include="Assets\Script\CoinAnim.cs" />
     <Compile Include="Assets\Script\DestroyCube.cs" />
     <Compile Include="Assets\Script\Drop.cs" />
+    <Compile Include="Assets\Script\EndAnim.cs" />
     <Compile Include="Assets\Script\EnemyMushrom.cs" />
+    <Compile Include="Assets\Script\FireBallMove.cs" />
     <Compile Include="Assets\Script\Flower.cs" />
     <Compile Include="Assets\Script\Mast.cs" />
     <Compile Include="Assets\Script\MoveCam.cs" />

@@ -19,7 +19,7 @@ public class Mast : MonoBehaviour
                 buff.x += 0.5f;
                 collision.gameObject.transform.position = buff;
                 collision.gameObject.GetComponent<Movement>().enabled = false;
-               // collision.gameObject.GetComponent<EndAnim>().enabled = true;
+                collision.gameObject.GetComponent<EndAnim>().enabled = true;
             }
         
     }
