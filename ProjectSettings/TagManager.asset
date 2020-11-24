@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Time
+  - Score
+  - Undefined
+  - Coins
+  - Canvas
   layers:
   - Default
   - TransparentFX

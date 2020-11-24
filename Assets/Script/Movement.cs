@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour
     private Rigidbody2D rb;
     public float Speed;
     public float JumpPower;
+    public bool FireBall=false;
     //Animator animator;
 
     Vector3 pos;
@@ -50,6 +51,7 @@ public class Movement : MonoBehaviour
             //animator.SetBool("jump", true);
             rb.velocity = new Vector3(0, JumpPower, 0);
         }
+        
 
         //if (rb.velocity.y <= 0) //animator.SetBool("jump", false);
 

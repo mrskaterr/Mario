@@ -24,7 +24,7 @@ public class EnemyMushrom : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Player" && collision.gameObject.GetComponent<Rigidbody2D>().velocity.y < 0)//Mushrom DIE
+        if (collision.gameObject.name == "Player" && collision.gameObject.GetComponent<Rigidbody2D>().velocity.y < 0 && Mathf.Abs(collision.gameObject.transform.position.x-gameObject.transform.position.x)<0.7)//Mushrom DIE
         {
             gameObject.SetActive(false);
         }

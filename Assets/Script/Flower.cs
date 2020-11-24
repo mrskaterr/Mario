@@ -10,8 +10,8 @@ public class Flower : MonoBehaviour
 
         if (collision.gameObject.name == "Player")
         {
-            //collision.gameObject.transform.localScale = new Vector2(1.1f, 1.5f);
             gameObject.SetActive(false);
+            collision.gameObject.GetComponent<Movement>().FireBall = true;
         }
     }
 }
