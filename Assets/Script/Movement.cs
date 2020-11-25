@@ -15,16 +15,16 @@ public class Movement : MonoBehaviour
     public float JumpPower;
     public bool FireBallActive;
     
-    //Animator animator;
+    Animator Animator;
 
     Rigidbody2D rb;
     Vector3 pos;
     SpriteRenderer mySpriteRenderer;
     void Start()
     {
-        FireBallActive=true;
+        FireBallActive=false;
         rb = GetComponent<Rigidbody2D>();
-       // animator = GetComponent<Animator>();
+        Animator = GetComponent<Animator>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         Speed *= 0.010f;
     }
@@ -36,7 +36,9 @@ public class Movement : MonoBehaviour
         pos = gameObject.transform.position;
         if (pos.y < 0) SceneManager.LoadScene("Menu");
 
-       // animator.SetFloat("speed", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
+        if (rb.velocity.y == 0) Animator.SetBool("IsJumping", false);
+        Animator.SetFloat("Speed", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
+       
 
         if (Input.GetKey("d"))
         {
@@ -54,7 +56,7 @@ public class Movement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && rb.velocity.y == 0)
         {
             //JumpSound.Play();
-            //animator.SetBool("jump", true);
+            Animator.SetBool("IsJumping", true);
             rb.velocity = new Vector3(0, JumpPower, 0);
         }
         if(Input.GetKeyDown(KeyCode.F) && FireBallActive)
@@ -71,7 +73,7 @@ public class Movement : MonoBehaviour
 
         }
 
-        //if (rb.velocity.y <= 0) //animator.SetBool("jump", false);
+        
 
 
         gameObject.transform.position = pos;
