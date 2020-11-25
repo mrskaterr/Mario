@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 using System.Security.AccessControl;
 using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
@@ -33,6 +34,7 @@ public class Movement : MonoBehaviour
     void Update()
     {
         pos = gameObject.transform.position;
+        if (pos.y < 0) SceneManager.LoadScene("Menu");
 
        // animator.SetFloat("speed", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
 

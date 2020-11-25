@@ -10,8 +10,8 @@ public class CoinAnim : MonoBehaviour
     {
         Coin = GetComponent<Rigidbody2D>();
         Coin.velocity = new Vector3(0, JumpPower, 0);
-       // GameObject.FindGameObjectWithTag("Canvas").GetComponent<TimeScore>().AddScore(100);
-       // GameObject.FindGameObjectWithTag("Canvas").GetComponent<TimeScore>().AddCoin();
+        GameObject.FindGameObjectWithTag("Canvas").GetComponent<TimeScoreCoin>().AddScore(100);
+        GameObject.FindGameObjectWithTag("Canvas").GetComponent<TimeScoreCoin>().AddCoin();
     }
 
     // Update is called once per frame

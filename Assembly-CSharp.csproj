@@ -70,6 +70,7 @@
     <Compile Include="Assets\Script\EnemyMushrom.cs" />
     <Compile Include="Assets\Script\FireBallMove.cs" />
     <Compile Include="Assets\Script\Flower.cs" />
+    <Compile Include="Assets\Script\MainMenu.cs" />
     <Compile Include="Assets\Script\Mast.cs" />
     <Compile Include="Assets\Script\MoveCam.cs" />
     <Compile Include="Assets\Script\Movement.cs" />

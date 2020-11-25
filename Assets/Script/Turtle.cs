@@ -40,7 +40,7 @@ public class Turtle : MonoBehaviour
         }
         else if (collision.gameObject.name == "Player")//Player DIE
         {
-            SceneManager.LoadScene("Mario Lvl1");
+            SceneManager.LoadScene("Menu");
         }
         else if (collision.gameObject.name == "Mushrom" && PrivateSpeed != Speed) collision.gameObject.SetActive(false);
         else if (rb.velocity.x == 0) PrivateSpeed *= -1;  //Change   

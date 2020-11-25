@@ -22,7 +22,7 @@ public class TimeScoreCoin : MonoBehaviour
     {
         TimeL -= Time.deltaTime;
 
-        if (TimeL < 0) SceneManager.LoadScene("Mario Lvl1");
+        if (TimeL < 0) SceneManager.LoadScene("Menu");
 
         GameObject.FindGameObjectWithTag("Time").GetComponent<Text>().text = ("TIME\n" + (int)TimeL);
         GameObject.FindGameObjectWithTag("Score").GetComponent<Text>().text = ("MARIO\n" + Score);

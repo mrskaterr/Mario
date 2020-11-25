@@ -35,7 +35,7 @@ public class EnemyMushrom : MonoBehaviour
         }
         else if (collision.gameObject.name == "Player")//Player DIE
         {
-            SceneManager.LoadScene("Mario Lvl1");
+            SceneManager.LoadScene("Menu");
         }
         else if(rb.velocity.x==0)PrivateSpeed *= -1;  //Change  
     }
