@@ -24,7 +24,7 @@ public class EndAnim : MonoBehaviour
     void Update()
     {
         pos = gameObject.transform.position;
-        if((int)gameObject.transform.position.x != 210) pos.x += 0.045f;
+        if((int)gameObject.transform.position.x != 210) pos.x += 0.12f;
         mySpriteRenderer.flipX = false;
         if (rb.velocity.y <= 0) animator.SetBool("IsJumping", false);
         gameObject.transform.position = pos;

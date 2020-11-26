@@ -28,6 +28,7 @@ public class FireBallMove : MonoBehaviour
         GameObject Coll = collision.gameObject;
         if (Coll.name == "Mushrom" || Coll.name == "Turtle")
         {
+            GameObject.FindGameObjectWithTag("Canvas").GetComponent<TimeScoreCoin>().AddScore(200);
             Coll.SetActive(false);
             gameObject.SetActive(false);
         }
