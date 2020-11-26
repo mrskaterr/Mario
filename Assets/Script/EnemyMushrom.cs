@@ -36,7 +36,7 @@ public class EnemyMushrom : MonoBehaviour
         }
         else if (collision.gameObject.name == "Player")//Player DIE
         {
-            SceneManager.LoadScene("Menu");
+            collision.gameObject.GetComponent<PlayerDead>().enabled = true;
         }
         else if(rb.velocity.x==0)PrivateSpeed *= -1;  //Change  
     }

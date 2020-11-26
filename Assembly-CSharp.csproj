@@ -76,6 +76,7 @@
     <Compile Include="Assets\Script\Movement.cs" />
     <Compile Include="Assets\Script\MushromDead.cs" />
     <Compile Include="Assets\Script\MushromLevelUp.cs" />
+    <Compile Include="Assets\Script\PlayerDead.cs" />
     <Compile Include="Assets\Script\TimeScoreCoin.cs" />
     <Compile Include="Assets\Script\Turtle.cs" />
     <Reference Include="UnityEngine">

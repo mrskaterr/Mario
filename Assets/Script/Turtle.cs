@@ -8,10 +8,11 @@ public class Turtle : MonoBehaviour
     public float Distance;
     public float Speed;
     float PrivateSpeed = 0;
+
     Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
-    {
+    { 
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -26,6 +27,7 @@ public class Turtle : MonoBehaviour
        
         if (collision.gameObject.name == "Player" && collision.gameObject.GetComponent<Rigidbody2D>().velocity.y < 0)//Tutrle transorm to Turtle2
         {
+            GameObject.FindGameObjectWithTag("Canvas").GetComponent<TimeScoreCoin>().AddScore(200);
             gameObject.transform.GetChild(0).gameObject.SetActive(false);
             gameObject.transform.GetChild(1).gameObject.SetActive(true);
             if (collision.gameObject.transform.position.x > gameObject.transform.position.x) gameObject.GetComponent<Turtle>().PrivateSpeed =Mathf.Abs(PrivateSpeed)*1.5f ;//prawo
@@ -40,9 +42,13 @@ public class Turtle : MonoBehaviour
         }
         else if (collision.gameObject.name == "Player")//Player DIE
         {
-            SceneManager.LoadScene("Menu");
+            collision.gameObject.GetComponent<PlayerDead>().enabled = true;
         }
-        else if (collision.gameObject.name == "Mushrom" && PrivateSpeed != Speed) collision.gameObject.SetActive(false);
+        else if (collision.gameObject.name == "Mushrom" && PrivateSpeed != Speed)//Mushrom Die
+        {
+            collision.gameObject.SetActive(false);
+            GameObject.FindGameObjectWithTag("Canvas").GetComponent<TimeScoreCoin>().AddScore(200);
+        }
         else if (rb.velocity.x == 0) PrivateSpeed *= -1;  //Change   
     }
 }

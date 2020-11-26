@@ -34,7 +34,7 @@ public class Movement : MonoBehaviour
     void Update()
     {
         pos = gameObject.transform.position;
-        if (pos.y < 0) SceneManager.LoadScene("Menu");
+        if (pos.y < 0) GetComponent<PlayerDead>().enabled = true;
 
         if (rb.velocity.y == 0) Animator.SetBool("IsJumping", false);
         Animator.SetFloat("Speed", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
