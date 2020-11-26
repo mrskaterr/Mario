@@ -8,8 +8,8 @@ using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
-    // public AudioSource JumpSound;
-
+    public AudioSource JumpSound;
+    public AudioSource FireBallSound;
     public GameObject OriginalFireBall;
     public float Speed;
     public float JumpPower;
@@ -55,20 +55,21 @@ public class Movement : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space) && rb.velocity.y == 0)
         {
-            //JumpSound.Play();
+            JumpSound.Play();
             Animator.SetBool("IsJumping", true);
             rb.velocity = new Vector3(0, JumpPower, 0);
         }
-        if(Input.GetKeyDown(KeyCode.F) && FireBallActive)
+        if(Input.GetKeyDown(KeyCode.F) && FireBallActive)//FireBall
         {
+            FireBallSound.Play();
             if (mySpriteRenderer.flipX == false)
             {
-                GameObject FireBallClone = Instantiate(OriginalFireBall, new Vector3(pos.x + 1, pos.y, pos.z), OriginalFireBall.transform.rotation);
+                Instantiate(OriginalFireBall, new Vector3(pos.x + 1, pos.y, pos.z), OriginalFireBall.transform.rotation);
             }
                 
             if (mySpriteRenderer.flipX == true)
             {
-                GameObject FireBallClone = Instantiate(OriginalFireBall, new Vector3(pos.x - 1, pos.y, pos.z), OriginalFireBall.transform.rotation);
+                Instantiate(OriginalFireBall, new Vector3(pos.x - 1, pos.y, pos.z), OriginalFireBall.transform.rotation);
             }
 
         }

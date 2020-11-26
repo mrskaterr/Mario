@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Mast : MonoBehaviour
 {
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
+            int Score;
             Vector2 buff;
             if (collision.gameObject.name == "Player")
             {
@@ -18,6 +20,9 @@ public class Mast : MonoBehaviour
                 buff = collision.gameObject.transform.position;
                 buff.x += 0.5f;
                 collision.gameObject.transform.position = buff;
+                Score = 100 * (int)GameObject.FindGameObjectWithTag("Canvas").GetComponent<TimeScoreCoin>().TimeL;
+                GameObject.FindGameObjectWithTag("Canvas").GetComponent<TimeScoreCoin>().AddScore(Score);
+                GameObject.FindGameObjectWithTag("Player").transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(false);
                 collision.gameObject.GetComponent<Movement>().enabled = false;
                 collision.gameObject.GetComponent<EndAnim>().enabled = true;
             }

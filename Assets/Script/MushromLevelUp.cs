@@ -6,6 +6,7 @@ public class MushromLevelUp : MonoBehaviour
 {
 
     public float speed;
+    public AudioSource LevelUpSound;
     Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,7 @@ public class MushromLevelUp : MonoBehaviour
 
         if (collision.gameObject.name == "Player")
         {
+            LevelUpSound.Play();
             collision.gameObject.transform.localScale = new Vector2(1.1f, 1.5f);
             gameObject.SetActive(false);
         }
