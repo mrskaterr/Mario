@@ -26,9 +26,10 @@ public class EnemyMushrom : MonoBehaviour
     {
         if (collision.gameObject.name == "Player" && collision.gameObject.GetComponent<Rigidbody2D>().velocity.y < 0 && Mathf.Abs(collision.gameObject.transform.position.x-gameObject.transform.position.x)<0.7)//Mushrom DIE
         {
+            GameObject.FindGameObjectWithTag("Canvas").GetComponent<TimeScoreCoin>().AddScore(200);
             gameObject.SetActive(false);
         }
-        else if (collision.gameObject.name == "Player" && collision.gameObject.transform.localScale.x>1) 
+        else if (collision.gameObject.name == "Player" && collision.gameObject.transform.localScale.x>1) //Mario2 to Mario
         {
             collision.gameObject.GetComponent<Movement>().Jump2();
             collision.gameObject.transform.localScale= new Vector3(1,1,1);

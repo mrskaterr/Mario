@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndAnim : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class EndAnim : MonoBehaviour
         pos = gameObject.transform.position;
         pos.x += 0.045f;
         mySpriteRenderer.flipX = false;
-        if (rb.velocity.y <= 0) animator.SetBool("jump", false);
+        if (rb.velocity.y <= 0) animator.SetBool("IsJumping", false);
         gameObject.transform.position = pos;
         if ((int)gameObject.transform.position.x == 210)
         {
@@ -33,6 +34,7 @@ public class EndAnim : MonoBehaviour
             gameObject.GetComponent<EndAnim>().enabled = false;
             Score = 100 * (int)GameObject.FindGameObjectWithTag("Canvas").GetComponent<TimeScoreCoin>().TimeL;
             GameObject.FindGameObjectWithTag("Canvas").GetComponent<TimeScoreCoin>().AddScore(Score);
+            SceneManager.LoadScene("Menu");
 
         }
 
